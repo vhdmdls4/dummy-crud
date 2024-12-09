@@ -6,4 +6,8 @@
 fastapi
 uvicorn
 swagger-ui-py
-sqlalchemy
+python-dotenv
+pydantic
+sqlmodel
+
+# uvicorn main:app --reload
