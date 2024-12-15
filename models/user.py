@@ -1,8 +1,13 @@
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional
-from datetime import datetime
+from typing import Annotated
+from fastapi import Depends, FastAPI, HTTPException, Query
+from pydantic import EmailStr
+from sqlmodel import Field, Session, SQLModel, create_engine, select
 
-class UserDTO(BaseModel):
-  id: Optional[int] = Field(None, "Id do usuário")
-  name: str = Field(..., min_length=2, max_length=100, description="Nome do usuário.")
-  
+from user_status import UserStatus
+
+class User(SQLModel, table=True):
+  id: int = Field(primary_key=True)
+  name: str = Field(min_length=2, max_length=100, index=True)
+  email: EmailStr = Field(index=True)
+  is_active: bool = Field(default=True, index=True)
+  user_status: UserStatus | None = Field(index=True)
