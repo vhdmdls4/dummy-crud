@@ -1,9 +1,7 @@
-from typing import Annotated
-from fastapi import Depends, FastAPI, HTTPException, Query
 from pydantic import EmailStr
 from sqlmodel import Field, Session, SQLModel, create_engine, select
+from enums.user_status import UserStatus
 
-from user_status import UserStatus
 
 class User(SQLModel, table=True):
   id: int = Field(primary_key=True)

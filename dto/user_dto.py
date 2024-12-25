@@ -1,6 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
-from datetime import datetime
 
 # provavelmente chamado de schema no contexto 
 class UserDTO(BaseModel):
