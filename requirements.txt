@@ -9,5 +9,7 @@ swagger-ui-py
 python-dotenv
 pydantic
 sqlmodel
+psycopg2-binary
+alembic
 
 # uvicorn main:app --reload
